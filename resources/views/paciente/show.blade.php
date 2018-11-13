@@ -6,6 +6,7 @@
     <p>Edad: {{ $paciente->age }}<br>
     Dirección: {{ $paciente->address }}<br>
     Código de paciente: {{ $paciente->barcode }}</p>
+    <p><div>{!! DNS2D::getBarcodeSVG($paciente->barcode, "PDF417",2,2  ) !!}</div></p>
     <a href="{{ url()->previous() }}"><button style="margin-right:6px" type="button" class="btn btn-info btn-sm float-left">Volver</button></a>
 
     <a style="margin-right:6px" href="{{ route('pacientes.edit',$paciente->id) }}" class="btn btn-primary btn-sm float-left">Editar</a>

@@ -37,6 +37,12 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'age' => 'required',
+            'barcode' => 'required|max:11',
+        ]);
+
         $paciente = new Paciente;
         $paciente->name = $request->get('name');
         $paciente->age = $request->get('age');
